@@ -111,9 +111,9 @@ def format_countdown(seconds):
     else:
         return f"{int(seconds)}s"
 
-@tasks.loop(seconds=1)
+@tasks.loop(seconds=10)
 async def update_embed():
-    """Main loop that updates the countdown embed every second."""
+    """Main loop that updates the countdown embed every 10 seconds."""
     if not persistent_message:
         return
 
@@ -186,7 +186,7 @@ async def update_embed():
             inline=False
         )
 
-    embed.set_footer(text="🤖 Auto-updating every second • Join during the green active window!")
+    embed.set_footer(text="🤖 Auto-updating every 10 seconds • Join during the green active window!")
     embed.timestamp = now
 
     try:
